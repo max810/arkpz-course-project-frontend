@@ -1,0 +1,32 @@
+register works!
+<!-- <button (click)="login()" *ngIf="!authService.isLogged()">Login</button> -->
+<!-- <button (click)="logout()" *ngIf="authService.isLogged()">Logout</button> -->
+<div class="container">
+  <h1>Register Form</h1>
+  <div *ngIf="requestFailed">
+    <span id="errorMessage">{{ errorMessage }}</span>
+  </div>
+  <form #loginForm="ngForm" (ngSubmit)="register()">
+    <div class="form-group">
+      <label for="email">role</label>
+      <select id="role" name="role" [(ngModel)]="role">
+        <option value="admin">admin</option>
+        <option value="user">user</option>
+      </select>
+      <!-- <input type="text" class="form-control" id="role" name="role" [(ngModel)]="role" required> -->
+    </div>
+
+    <div class="form-group">
+      <label for="email">email</label>
+      <input type="text" class="form-control" id="email" name="email" [(ngModel)]="email" required>
+    </div>
+
+    <div class="form-group">
+      <label for="password">password</label>
+      <input type="password" class="form-control" name="password" id="password" [(ngModel)]="password">
+    </div>
+    
+    <button type="submit" class="btn btn-success">Submit</button>
+
+  </form>
+</div>

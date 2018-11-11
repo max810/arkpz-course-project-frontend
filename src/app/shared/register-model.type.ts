@@ -13,7 +13,7 @@ export class RegisterModel implements IUserRegisterRequestModel {
     this.rememberMe = rememberMe;
   }
 
-  toUserRegisterRequestModel() {
+  public toUserRegisterRequestModel() {
     return new UserRegisterRequestModel(this);
   }
 }

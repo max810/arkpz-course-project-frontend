@@ -5,11 +5,13 @@ import { AboutpageComponent } from './aboutpage/aboutpage.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { LoginComponent } from './auth/login/login.component';
 import { HeaderComponent } from './header/header.component';
+import { RegisterComponent } from './auth/register/register.component';
 
 const routes: Routes = [
   { path: 'homepage', component: HomepageComponent },
   { path: 'aboutpage', component: AboutpageComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
   { path: '', redirectTo: '/homepage', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent },
 ];

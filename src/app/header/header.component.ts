@@ -22,7 +22,7 @@ export class HeaderComponent {
     public authService: AuthService, public router: Router
   ) { }
   public getUsername(): string {
-    return localStorage.getItem('userName');
+    return localStorage.getItem('user_name');
   }
 
   logout() {

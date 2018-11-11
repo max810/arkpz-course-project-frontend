@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
+import { LoginModel } from 'src/app/shared/login-model.type';
 
 @Component({
   selector: 'app-login',
@@ -20,8 +21,7 @@ export class LoginComponent implements OnInit {
   login() {
     // ADD FORM with login fields
     this.authService.login(
-      this.email,
-      this.password,
+      new LoginModel(this.email, this.password),
       x => {
         console.log("No such user.");
         this.isError = true;
