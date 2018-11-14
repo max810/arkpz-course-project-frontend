@@ -5,7 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { arkpzAPI, API_BASE_URL } from './services/arkpz-api';
 import { environment } from '../environments/environment';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { TokenInterceptor } from './shared/token-interceptor.type';
 import { FormsModule } from '@angular/forms';
 
 import { HomepageComponent } from './homepage/homepage.component';
@@ -47,6 +48,11 @@ import { RegisterComponent } from './auth/register/register.component';
     ],
     providers: [
         arkpzAPI,
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: TokenInterceptor,
+            multi: true
+        }
     ],
     bootstrap: [
         AppComponent

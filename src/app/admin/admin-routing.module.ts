@@ -4,6 +4,7 @@ import { AdminComponent } from './admin/admin.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { AuthGuard } from '../auth/auth.guard';
 import { ProfileComponent } from './profile/profile.component';
+import { AdminGuard } from './admin.guard';
 
 const routes: Routes = [
   {
@@ -14,10 +15,10 @@ const routes: Routes = [
       {
         path: '',
         children: [
-          { path: 'dashboard', component: AdminDashboardComponent },
+          { path: 'dashboard', component: AdminDashboardComponent, canActivate: [AdminGuard] },
           { path: 'profile', component: ProfileComponent },
-          // { path: 'profile-driver', component: ProfileDriverComponent, canActivate: [ProfileTypeGuard] },
-          // { path: 'profile-employee', component: ProfileEmployeeComponent, canActivate: [ProfileTypeGuard] },
+          // { path: 'profile-user', component: ProfileUserComponent, canActivate: [ProfileTypeGuard] },
+          // { path: 'profile-admin', component: ProfileAdminComponent, canActivate: [ProfileTypeGuard] },
           { path: '', redirectTo: '/homepage', pathMatch: 'full' },
         ]
       }

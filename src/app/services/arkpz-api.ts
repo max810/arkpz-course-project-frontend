@@ -501,7 +501,7 @@
 // }
 
 // export interface CrashReport {
-//     driverId?: number | undefined;
+//     userId?: number | undefined;
 //     dangerLevel?: CrashReportDangerLevel | undefined;
 //     coords?: Coordinates | undefined;
 // }
@@ -636,7 +636,7 @@ export class arkpzAPI {
 
     constructor(@Inject(HttpClient) http: HttpClient, @Optional() @Inject(API_BASE_URL) baseUrl?: string) {
         this.http = http;
-        this.baseUrl = baseUrl ? baseUrl : "https://localhost:5001";
+        this.baseUrl = baseUrl ? baseUrl : "https://c80cdf3e.ngrok.io";
     }
 
     /**

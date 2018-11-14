@@ -8,6 +8,7 @@ import { RegisterModel } from '../shared/register-model.type';
   providedIn: 'root'
 })
 export class AuthService {
+
   isLogged(): boolean {
     return localStorage.getItem('jwt') ? true : false;
   }
@@ -15,6 +16,10 @@ export class AuthService {
 
   }
   redirectUrl: string;
+
+  getToken() {
+    return localStorage.getItem('jwt');
+  }
 
   login(loginModel: LoginModel, onFailure, onSuccess) {
     // MOCK

@@ -11,9 +11,9 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit() {
   }
-  isDriver(): boolean {
-    let profileType = localStorage.getItem("profileType");
-
-    return profileType == "driver";
+  isUser(): boolean {
+    let profileType = localStorage.getItem("profile_type");
+    console.log("Profile: " + profileType);
+    return profileType == "user";
   }
 }
