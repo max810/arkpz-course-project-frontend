@@ -9,11 +9,14 @@ import { arkpzAPI, Drone } from 'src/app/services/arkpz-api';
 export class ProfileAdminComponent implements OnInit {
 
   constructor(public backend: arkpzAPI) { }
-  drones: Drone[];
+  drones: Drone[] = [];
   ngOnInit() {
   }
 
   getDrones() {
-    this.backend.accrDronesGet().subscribe(x => console.log(x));
+    this.backend.accrDronesGet().subscribe(x => { 
+      console.log(x);
+      this.drones = x;
+    });
   }
 }

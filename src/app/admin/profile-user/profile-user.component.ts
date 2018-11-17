@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { arkpzAPI, CrashRecord, CrashReport, Coordinates, CrashReportDangerLevel } from 'src/app/services/arkpz-api';
 
 @Component({
   selector: 'app-profile-user',
@@ -7,9 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileUserComponent implements OnInit {
 
-  constructor() { }
+  constructor(public backend: arkpzAPI) { }
 
   ngOnInit() {
+    //  this.backend.accrCrashSendCrashPost(CrashReport)
   }
-
 }

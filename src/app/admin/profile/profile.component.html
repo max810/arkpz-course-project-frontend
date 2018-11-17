@@ -1,6 +1,21 @@
-<app-profile-user *ngIf="isUser()">
+<div *ngIf="crashes.length">
+  <div *ngFor="let crash of crashes">
+    <p> {{ crash }}</p>
+  </div>
+</div>
+<div *ngIf="!crashes.length">
+  <p>NO CRASH RECORDS FOR {{ getUserName() }}</p>
+</div>
+<button (click)="sendCrashReport()">
+  SEND CRASH REPORT
+</button>
+<div *ngIf="crashReportSentMessage">
+  <span class="report-sent-message">{{ crashReportSentMessage }}</span>
+</div>
+
+<app-profile-user *ngIf="!isAdmin()">
 
 </app-profile-user>
-<app-profile-admin *ngIf="!isUser()">
+<app-profile-admin *ngIf="isAdmin()">
 
 </app-profile-admin>

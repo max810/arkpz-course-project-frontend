@@ -1,7 +1,13 @@
 <p>
   profile-admin works!
 </p>
-<button (click)="getDrones()">log drones</button>
-<!-- <div *ngFor="let drone of getDrones()">
+<button (click)="getDrones()">Get all drones</button>
+<div *ngIf="drones.length">
+<div *ngFor="let drone of drones">
   {{ drone }}
-  </div> -->
+</div>
+</div>
+<div *ngIf="!drones.length">
+  <span>No drones yet</span>
+</div>
+<!-- TODO: Add CRUD -->
