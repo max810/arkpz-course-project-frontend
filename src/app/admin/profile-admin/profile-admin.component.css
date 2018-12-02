@@ -1,0 +1,16 @@
+button {
+    color: black;
+    font-family: 'Consolas'
+}
+
+.btn-edit {
+    background-color: yellow; 
+}
+
+.btn-delete {
+    background-color: red;
+}
+
+.btn-add {
+    background-color: lightgreen;
+}

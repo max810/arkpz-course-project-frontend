@@ -22,12 +22,9 @@ export class AuthService {
   }
 
   login(loginModel: LoginModel, onFailure, onSuccess) {
-    // MOCK
-    // add request to server
     let response = this.backend.accrAuthLoginPost(
       loginModel.toAuthModel()
     );
-    // this.backend.accrDronesByIdGet
     response.subscribe(x => {
       localStorage.setItem('jwt', x.access_token);
       localStorage.setItem('profile_type', x.profile_type);
@@ -46,7 +43,6 @@ export class AuthService {
   }
 
   register(registerModel: RegisterModel, onFailure, onSuccess) {
-    // let registerModel = new RegisterModel(role, email, password, rememberMe);
     console.log(registerModel.toUserRegisterRequestModel());
     let response = this.backend.accrAuthRegisterPost(registerModel.toUserRegisterRequestModel());
     response.subscribe(_x => {

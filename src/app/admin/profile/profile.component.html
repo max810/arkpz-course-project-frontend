@@ -1,14 +1,17 @@
+<h2>{{ localText[local].prevReports }}</h2>
 <div *ngIf="crashes.length">
   <div *ngFor="let crash of crashes">
     <p> {{ crash }}</p>
   </div>
 </div>
 <div *ngIf="!crashes.length">
-  <p>NO CRASH RECORDS FOR {{ getUserName() }}</p>
+  <p>{{ localText[local].noCrash }} {{ getUserName() }}</p>
 </div>
 <button (click)="sendCrashReport()">
-  SEND CRASH REPORT
+  {{ localText[local].sendCrash }}
 </button>
+<h1></h1>
+
 <div *ngIf="crashReportSentMessage">
   <span class="report-sent-message">{{ crashReportSentMessage }}</span>
 </div>

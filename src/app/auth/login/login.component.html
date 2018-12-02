@@ -1,26 +1,24 @@
-login works!
 <!-- <button (click)="login()" *ngIf="!authService.isLogged()">Login</button> -->
 <!-- <button (click)="logout()" *ngIf="authService.isLogged()">Logout</button> -->
 <div class="container">
-  <h1>Login Form</h1>
+  <h1>{{ localText[local].loginForm }}</h1>
   <div *ngIf="isError">
-    <span id="errorMessage">Wrong username or password</span>
+    <span id="errorMessage">{{ localText[local].wrong }}</span>
   </div>
   <form #loginForm="ngForm" (ngSubmit)="login()">
     <div class="form-group">
-      <label for="email">email</label>
+      <label for="email">Email</label>
       <input type="text" class="form-control" id="email" name="email" [(ngModel)]="email" required>
     </div>
 
     <div class="form-group">
-      <label for="password">password</label>
-      <input type="text" class="form-control" name="password" id="password" [(ngModel)]="password">
+      <label for="password">{{ localText[local].pwd }}</label>
+      <input type="password" class="form-control" name="password" id="password" [(ngModel)]="password">
     </div>
 
-    <button type="submit" class="btn btn-success">Submit</button>
+    <button type="submit" class="btn btn-success">{{ localText[local].submit }}</button>
     <div style="margin: 20px auto;">
-      <a style="font-size: 24px;" routerLink="/register">REGISTER</a>
+      <a style="font-size: 24px;" routerLink="/register">{{ localText[local].register }}</a>
     </div>
-
   </form>
 </div>

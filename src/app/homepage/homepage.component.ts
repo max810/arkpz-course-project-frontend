@@ -7,8 +7,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomepageComponent implements OnInit {
 
+  localText = {
+    "en": {
+      "mainText": "Welcome to home page of ACCR.",
+      "aboutUrl": "About us"
+    },
+    "ua": {
+      "mainText": "Вітаємо у системі АСТРА.",
+      "aboutUrl": "Про нас"
+    }
+  };
+  local: string;
   constructor() { }
-
   ngOnInit() {
+    this.local = localStorage.getItem('local');
+    console.log(this.local);
   }
 }

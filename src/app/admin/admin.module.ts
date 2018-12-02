@@ -7,12 +7,25 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
 import { ProfileUserComponent } from './profile-user/profile-user.component';
 import { ProfileAdminComponent } from './profile-admin/profile-admin.component';
 import { ProfileComponent } from './profile/profile.component';
+import { AddDroneComponent } from './add-drone/add-drone.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { EditDroneComponent } from './edit-drone/edit-drone.component';
 
 @NgModule({
   imports: [
     CommonModule,
-    AdminRoutingModule
+    AdminRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
-  declarations: [AdminComponent, AdminDashboardComponent, ProfileUserComponent, ProfileAdminComponent, ProfileComponent]
+  declarations:
+    [AdminComponent,
+      // AdminDashboardComponent,
+      ProfileUserComponent,
+      ProfileAdminComponent,
+      ProfileComponent,
+      AddDroneComponent,
+      EditDroneComponent
+    ]
 })
 export class AdminModule { }

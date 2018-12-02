@@ -11,6 +11,22 @@ import { RegisterModel } from 'src/app/shared/register-model.type';
 })
 export class RegisterComponent implements OnInit {
 
+  local: string;
+  localText = {
+    "en": {
+      "role": "Role",
+      "pwd": "Password",
+      "submit": "Submit",
+      "registerForm": "Register Form"
+    },
+    "ua": {
+      "role": "Роль",
+      "registerForm": "Форма реєстрації",
+      "pwd": "Пароль",
+      "submit": "Відправити",
+    }
+  };
+
   constructor(public authService: AuthService, public router: Router) {
 
   }
@@ -20,6 +36,7 @@ export class RegisterComponent implements OnInit {
   requestFailed: boolean = false;
   errorMessage: string = "";
   ngOnInit() {
+    this.local = localStorage.getItem('local');
   }
 
   register() {

@@ -13,9 +13,27 @@ export class LoginComponent implements OnInit {
   constructor(public authService: AuthService, public router: Router) { }
   isError: boolean = false;
 
+  local: string;
+  localText = {
+    "en": {
+      "loginForm": "Login Form",
+      "wrong": "Wrong username or password",
+      "pwd": "Password",
+      "submit": "Submit",
+      "register": "REGISTER"
+    },
+    "ua": {
+      "loginForm": "Форма Авторизації",
+      "wrong": "Невірне ім'я користувача або пароль",
+      "pwd": "Пароль",
+      "submit": "Відправити",
+      "register": "РЕЄСТРАЦІЯ"
+    }
+  };
   email: string;
   password: string;
   ngOnInit() {
+    this.local = localStorage.getItem('local');
   }
 
   login() {
@@ -32,9 +50,8 @@ export class LoginComponent implements OnInit {
           this.authService.redirectUrl : '/';
         this.router.navigate([redirect]);
       },
-      );
+    );
   }
-
 
   logout() {
     this.authService.logout();

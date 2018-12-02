@@ -1,14 +1,13 @@
-register works!
 <!-- <button (click)="login()" *ngIf="!authService.isLogged()">Login</button> -->
 <!-- <button (click)="logout()" *ngIf="authService.isLogged()">Logout</button> -->
 <div class="container">
-  <h1>Register Form</h1>
+  <h1>{{ localText[local].registerForm}}</h1>
   <div *ngIf="requestFailed">
     <span id="errorMessage">{{ errorMessage }}</span>
   </div>
   <form #loginForm="ngForm" (ngSubmit)="register()">
     <div class="form-group">
-      <label for="email">role</label>
+      <label for="role">{{ localText[local].role }}</label>
       <select id="role" name="role" [(ngModel)]="role">
         <option value="admin">admin</option>
         <option value="user">user</option>
@@ -17,16 +16,16 @@ register works!
     </div>
 
     <div class="form-group">
-      <label for="email">email</label>
+      <label for="email">Email</label>
       <input type="text" class="form-control" id="email" name="email" [(ngModel)]="email" required>
     </div>
 
     <div class="form-group">
-      <label for="password">password</label>
+      <label for="password">{{ localText[local].pwd}}</label>
       <input type="password" class="form-control" name="password" id="password" [(ngModel)]="password">
     </div>
-    
-    <button type="submit" class="btn btn-success">Submit</button>
+
+    <button type="submit" class="btn btn-success">{{ localText[local].submit}}</button>
 
   </form>
 </div>
