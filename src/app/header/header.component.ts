@@ -37,8 +37,8 @@ export class HeaderComponent {
 
   imgSrc: string;
   imgSrcs = {
-    "en": "../assets/en.png",
-    "ua": "../assets/ua.png"
+    "en": "assets/en.png",
+    "ua": "assets/ua.png"
   }
 
   constructor(
