@@ -17,13 +17,15 @@ export class RegisterComponent implements OnInit {
       "role": "Role",
       "pwd": "Password",
       "submit": "Submit",
-      "registerForm": "Register Form"
+      "registerForm": "Register Form",
+      "errorMessage": "User already exists"
     },
     "ua": {
       "role": "Роль",
       "registerForm": "Форма реєстрації",
       "pwd": "Пароль",
       "submit": "Відправити",
+      "errorMessage": "Такий користувач вже існує"
     }
   };
 
@@ -49,10 +51,16 @@ export class RegisterComponent implements OnInit {
     );
     this.authService.register(registerModel,
       x => {
+        console.log("register fail")
         this.requestFailed = true;
       },
       x => {
+        console.log("register ok")
         this.requestFailed = false;
+        localStorage.setItem('email', this.email);
+        localStorage.setItem('password', this.email);
+        localStorage.setItem('isRegOk', "1");
+
         this.router.navigate(['/login']);
       });
   }

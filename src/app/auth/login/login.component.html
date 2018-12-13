@@ -5,6 +5,9 @@
   <div *ngIf="isError">
     <span id="errorMessage">{{ localText[local].wrong }}</span>
   </div>
+  <div *ngIf="isRegOk">
+    <span id="regOkMessage"> {{ localText[local].regOk }} </span>
+  </div>
   <form #loginForm="ngForm" (ngSubmit)="login()">
     <div class="form-group">
       <label for="email">Email</label>

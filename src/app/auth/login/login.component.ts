@@ -12,28 +12,37 @@ export class LoginComponent implements OnInit {
 
   constructor(public authService: AuthService, public router: Router) { }
   isError: boolean = false;
-
+  isRegOk: Boolean;
   local: string;
   localText = {
     "en": {
       "loginForm": "Login Form",
-      "wrong": "Wrong username or password",
+      "`wrong`": "Wrong username or password",
       "pwd": "Password",
       "submit": "Submit",
-      "register": "REGISTER"
+      "register": "REGISTER",
+      "regOk": "Registration successful!"
     },
     "ua": {
       "loginForm": "Форма Авторизації",
       "wrong": "Невірне ім'я користувача або пароль",
       "pwd": "Пароль",
       "submit": "Відправити",
-      "register": "РЕЄСТРАЦІЯ"
+      "register": "РЕЄСТРАЦІЯ",
+      "regOk": "Успішно зареєстровано"
     }
   };
   email: string;
   password: string;
   ngOnInit() {
     this.local = localStorage.getItem('local');
+    this.email = localStorage.getItem('email') || '';
+    this.password ='';
+    this.isRegOk = Boolean(localStorage.getItem('isRegOk'));
+  }
+
+  ngOnDestroy() {
+    localStorage.removeItem('isRegOk');
   }
 
   login() {

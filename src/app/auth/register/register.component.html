@@ -3,7 +3,7 @@
 <div class="container">
   <h1>{{ localText[local].registerForm}}</h1>
   <div *ngIf="requestFailed">
-    <span id="errorMessage">{{ errorMessage }}</span>
+    <span id="errorMessage">{{ localText[local].errorMessage }}</span>
   </div>
   <form #loginForm="ngForm" (ngSubmit)="register()">
     <div class="form-group">

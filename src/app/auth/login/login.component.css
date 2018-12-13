@@ -3,6 +3,12 @@
   color: red;
 }
 
+#regOkMessage {
+  font-size: 24px;
+  color: green;
+}
+
+
 a {
   color: darkblue;
 }

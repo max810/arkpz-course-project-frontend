@@ -45,8 +45,9 @@ export class AuthService {
   register(registerModel: RegisterModel, onFailure, onSuccess) {
     console.log(registerModel.toUserRegisterRequestModel());
     let response = this.backend.accrAuthRegisterPost(registerModel.toUserRegisterRequestModel());
+    console.log(response);
     response.subscribe(_x => {
-      console.log(_x);
+      console.log(_x)
     },
     onFailure,
     onSuccess
