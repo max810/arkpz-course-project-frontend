@@ -1,5 +1,15 @@
 <!-- <button (click)="login()" *ngIf="!authService.isLogged()">Login</button> -->
 <!-- <button (click)="logout()" *ngIf="authService.isLogged()">Logout</button> -->
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Please wait</h4>
+  </div>
+  <div class="modal-body">
+    <p class="h2 text-primary">Logging in</p>
+  </div>
+</ng-template>
+
 <div class="container">
   <h1>{{ localText[local].loginForm }}</h1>
   <div *ngIf="1 === 1">
@@ -19,7 +29,7 @@
       <input type="password" class="form-control" name="password" id="password" [(ngModel)]="password">
     </div>
 
-    <button type="submit" class="btn btn-success">{{ localText[local].submit }}</button>
+    <button type="submit" (click)="openModal(content)" class="btn btn-success">{{ localText[local].submit }}</button>
     <div style="margin: 20px auto;">
       <a style="font-size: 24px;" routerLink="/register">{{ localText[local].register }}</a>
     </div>

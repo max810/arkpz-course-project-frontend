@@ -11,13 +11,13 @@
         </a>
       </div>
       <div *ngIf="authService.isLogged()">
-        <button (click)="logout()"> {{ localText[local].logout }} </button>
+        <button type="button" class="btn btn-warning" (click)="logout()"> {{ localText[local].logout }} </button>
         {{ localText[local].loggedIn }} <a routerLink='/profile'> {{ getUsername() }}</a>
       </div>
-      <img class="btn" src="{{ imgSrc }}" (click)="changeLocal()" width=32 height=32>
+      <img class="icn" src="{{ imgSrc }}" (click)="changeLocal()" width=32 height=32>
     </mat-toolbar>
     <ng-component>
-      
+
     </ng-component>
   </mat-sidenav-content>
 </mat-sidenav-container>

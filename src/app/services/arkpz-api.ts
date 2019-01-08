@@ -970,7 +970,7 @@ export class CrashRecord implements ICrashRecord {
     }
 
     toString() {
-        return `${this.date.toLocaleString()},
+        return `${this.date.toLocaleDateString()},
         ${this.assignedDrone
             ? "OK"
             : "OK"} ${this.assignedDrone.latitude} ${this.assignedDrone.longitude}`;

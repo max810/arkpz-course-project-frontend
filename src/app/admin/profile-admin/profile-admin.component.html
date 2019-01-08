@@ -1,13 +1,47 @@
 <!-- <button (click)="getDrones()">Get all drones</button> -->
-<div *ngIf="drones.length">
+<!-- <div *ngIf="drones.length">
   <div *ngFor="let drone of drones">
     {{ drone }}
-    <button class="btn-edit" (click)="(editDrone(drone))">{{ localText[local].editDrone }}</button>
-    <button class="btn-delete" (click)="(deleteDrone(drone))">{{ localText[local].deleteDrone }}</button>
+
   </div>
+</div> -->
+<!-- <div *ngIf="!drones.length">
+  <span class="h2">{{ localText[local].noDrones }}</span>
+</div> -->
+
+<div id="dronesWrapper">
+  <table id="drones" class="margin: 0 auto; table table-striped table-bordered">
+    <thead class="thead-light">
+      <tr>
+        <th scope="col" style="width: 100px;">Id</th>
+        <th scope="col" style="width: 100px;">Status</th>
+        <th scope="col" style="width: 100px;">Longitude</th>
+        <th scope="col" style="width: 100px;">Latitude</th>
+        <th scope="col" style="width: 75px;"></th>
+        <th scope="col" style="width: 75px;"></th>
+      </tr>
+    </thead>
+    <tr *ngFor="let drone of drones">
+      <td>{{ drone.id }}</td>
+      <td>{{ drone.status }}</td>
+      <td> {{ drone.longitude.toFixed(2) }}</td>
+      <td> {{ drone.latitude.toFixed(2) }} </td>
+      <td>
+        <button class="btn btn-warning" (click)="(editDrone(drone))">{{ localText[local].editDrone }}</button></td>
+      <td>
+        <button class="btn btn-danger" (click)="(deleteDrone(drone))">{{ localText[local].deleteDrone }}</button></td>
+    </tr>
+    <tr *ngIf="!drones.length">
+      <td>----</td>
+      <td>----</td>
+      <td>----</td>
+      <td>----</td>
+      <td>----</td>
+      <td>----</td>
+    </tr>
+    <p class="text-secondary h3" *ngIf="!drones.length">{{ localText[local].noDrones }}</p>
+
+  </table>
 </div>
-<div *ngIf="!drones.length">
-  <span>{{ localText[local].noDrones }}</span>
-</div>
-<h1></h1>
-<button class="btn-add" (click)="addDrone()">{{ localText[local].addDrone }}</button>
+
+<button style="margin-bottom: 50px" class="btn btn-success" (click)="addDrone()">{{ localText[local].addDrone }}</button>

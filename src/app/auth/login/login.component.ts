@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
 import { LoginModel } from 'src/app/shared/login-model.type';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +11,7 @@ import { LoginModel } from 'src/app/shared/login-model.type';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(public authService: AuthService, public router: Router) { }
+  constructor(public authService: AuthService, public router: Router, private modalService: NgbModal) { }
   isError: boolean = false;
   isRegOk: Boolean;
   local: string;
@@ -37,7 +38,7 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
     this.local = localStorage.getItem('local');
     this.email = localStorage.getItem('email') || '';
-    this.password ='';
+    this.password = '';
     this.isRegOk = Boolean(localStorage.getItem('isRegOk'));
   }
 
@@ -57,9 +58,13 @@ export class LoginComponent implements OnInit {
         this.isError = false;
         let redirect = this.authService.redirectUrl ?
           this.authService.redirectUrl : '/';
+        this.modalService.dismissAll();
         this.router.navigate([redirect]);
       },
     );
+  }
+  openModal(content) {
+    this.modalService.open(content);
   }
 
   logout() {

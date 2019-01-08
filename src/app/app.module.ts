@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { arkpzAPI, API_BASE_URL } from './services/arkpz-api';
 import { environment } from '../environments/environment';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptor } from './shared/token-interceptor.type';
 import { FormsModule } from '@angular/forms';
@@ -38,6 +39,7 @@ import { RegisterComponent } from './auth/register/register.component';
         AdminModule,
         // AuthModule,
         AppRoutingModule,
+        NgbModule,
         BrowserAnimationsModule,
         LayoutModule,
         MatToolbarModule,
@@ -59,5 +61,5 @@ import { RegisterComponent } from './auth/register/register.component';
     ]
 })
 export class AppModule {
-    
- }
+
+}

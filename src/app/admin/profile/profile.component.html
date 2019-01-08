@@ -1,24 +1,52 @@
-<h2>{{ localText[local].prevReports }}</h2>
-<div *ngIf="crashes.length">
-  <div *ngFor="let crash of crashes">
-    <p> {{ crash }}</p>
+<div class="col-xs-1 text-center">
+  <p class="h2">{{ localText[local].prevReports }}</p>
+
+  <div id="crashRecordsWrapper">
+    <table id="crashRecords" class="margin: 0 auto; table table-striped table-bordered">
+      <thead class="thead-light">
+        <tr>
+          <th scope="col" style="width: 100px;">Id</th>
+          <th scope="col" style="width: 100px;">Date</th>
+          <th scope="col" style="width: 100px;">Time</th>
+          <th scope="col" style="width: 100px;">Drone assigned</th>
+          <th scope="col" style="width: 100px;">Drone coords</th>
+        </tr>
+      </thead>
+      <tr *ngFor="let crash of crashes">
+        <td>{{ crash.id }}</td>
+        <td>{{ crash.date.toLocaleDateString() }}</td>
+        <td> {{ crash.date.toLocaleTimeString() }}</td>
+        <td> {{ crash.assignedDrone ? "+" : "-"}}</td>
+        <td> {{ crash.assignedDrone ? ""
+          + crash.assignedDrone.longitude.toFixed(2) + ", " + crash.assignedDrone.latitude.toFixed(2)
+          : "" }} </td>
+      </tr>
+      <tr *ngIf="!crashes.length">
+        <td>----</td>
+        <td>----</td>
+        <td>----</td>
+        <td>----</td>
+        <td>----</td>
+
+      </tr>
+      <p class="text-secondary h3" *ngIf="!crashes.length">{{ localText[local].noCrash }} {{ getUserName() }}</p>
+
+    </table>
   </div>
+
+  <button class="btn btn-primary" (click)="sendCrashReport()" style="margin-bottom: 50px">
+    {{ localText[local].sendCrash }}
+  </button>
+  <h1></h1>
+
+  <div *ngIf="crashReportSentMessage">
+    <span class="report-sent-message">{{ crashReportSentMessage }}</span>
+  </div>
+
+  <app-profile-user *ngIf="!isAdmin()">
+
+  </app-profile-user>
+  <app-profile-admin *ngIf="isAdmin()">
+
+  </app-profile-admin>
 </div>
-<div *ngIf="!crashes.length">
-  <p>{{ localText[local].noCrash }} {{ getUserName() }}</p>
-</div>
-<button (click)="sendCrashReport()">
-  {{ localText[local].sendCrash }}
-</button>
-<h1></h1>
-
-<div *ngIf="crashReportSentMessage">
-  <span class="report-sent-message">{{ crashReportSentMessage }}</span>
-</div>
-
-<app-profile-user *ngIf="!isAdmin()">
-
-</app-profile-user>
-<app-profile-admin *ngIf="isAdmin()">
-
-</app-profile-admin>

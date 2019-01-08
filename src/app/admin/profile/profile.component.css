@@ -1,8 +1,21 @@
 p {
-    font-weight: bold;
+  font-weight: bold;
 }
+
 .report-sent-message {
-    color: darkgreen;
-    font-size: 24px;
-    font-weight: bold;
+  color: darkgreen;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+#crashRecords {
+  /* max-height: 200px !important; */
+  width: 100% !important;
+}
+
+#crashRecordsWrapper {
+  max-height: 250px !important;
+  margin: 10px auto;
+  overflow: auto;
+  width: 70% !important;
 }

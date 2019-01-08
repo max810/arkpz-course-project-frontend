@@ -1,16 +1,11 @@
-button {
-    color: black;
-    font-family: 'Consolas'
+#drones {
+  /* max-height: 200px !important; */
+  width: 100% !important;
 }
 
-.btn-edit {
-    background-color: yellow; 
-}
-
-.btn-delete {
-    background-color: red;
-}
-
-.btn-add {
-    background-color: lightgreen;
+#dronesWrapper {
+  max-height: 250px !important;
+  margin: 10px auto;
+  overflow: auto;
+  width: 70% !important;
 }

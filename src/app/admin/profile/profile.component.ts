@@ -10,12 +10,12 @@ export class ProfileComponent implements OnInit {
   local: string;
   localText = {
     "en": {
-      "prevReports": "Previous Reports (date, time, status)",
+      "prevReports": "Previous Reports",
       "noCrash": "NO CRASH RECORDS FOR",
       "sendCrash": "SEND CRASH REPORT",
     },
     "ua": {
-      "prevReports": "Попередні аварії (дата, час, статус)",
+      "prevReports": "Попередні аварії",
       "noCrash": "НЕМАЄ ЗАПИСІВ АВАРІЙ ДЛЯ",
       "sendCrash": "ВІДПРАВИТИ ЗАПИС ПРО АВАРІЮ",
     }

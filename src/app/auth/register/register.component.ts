@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
 import { RegisterModel } from 'src/app/shared/register-model.type';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 
 @Component({
@@ -29,7 +30,7 @@ export class RegisterComponent implements OnInit {
     }
   };
 
-  constructor(public authService: AuthService, public router: Router) {
+  constructor(public authService: AuthService, public router: Router, private modalService: NgbModal) {
 
   }
   role: string;
@@ -39,6 +40,10 @@ export class RegisterComponent implements OnInit {
   errorMessage: string = "";
   ngOnInit() {
     this.local = localStorage.getItem('local');
+  }
+
+  openModal(content) {
+    this.modalService.open(content);
   }
 
   register() {
@@ -60,7 +65,7 @@ export class RegisterComponent implements OnInit {
         localStorage.setItem('email', this.email);
         localStorage.setItem('password', this.email);
         localStorage.setItem('isRegOk', "1");
-
+        this.modalService.dismissAll();
         this.router.navigate(['/login']);
       });
   }
