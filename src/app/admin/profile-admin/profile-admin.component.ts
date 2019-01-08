@@ -23,8 +23,8 @@ export class ProfileAdminComponent implements OnInit {
     },
     "ua": {
       "addDrone": "ДОДАТИ ДРОНА",
-      "editDrone": "РЕДАГУВАТИ",
-      "deleteDrone": "ВИДАЛИТИ",
+      "editDrone": "РЕДАГ.",
+      "deleteDrone": "ВИДАЛ.",
       "noDrones": "Поки що немає дронів",
       "confirmDelete": "Ви впевнені, що бажаєте видалити дрона №",
       "status": "Статус",

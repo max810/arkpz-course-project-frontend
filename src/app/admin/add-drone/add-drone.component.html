@@ -1,18 +1,18 @@
 <div class="col-md-6" style="margin: auto;">
-  <h2 class="text-center">Add User</h2>
+  <h2 class="text-center">{{ local == "en" ? "Add Drone" : "Додавання дрону" }}</h2>
   <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
-      <label for="latitude">Latitude:</label>
+      <label for="latitude">{{ local == "en" ? "Latitude" : "Широта" }}:</label>
       <input formControlName="latitude" placeholder="Latitude" name="latitude" class="form-control" id="latitude">
     </div>
 
     <div class="form-group">
-      <label for="longitude">Longitude:</label>
+      <label for="longitude">{{ local == "en" ? "Longitude" : "Довгота" }}:</label>
       <input formControlName="longitude" placeholder="Longitude" name="longitude" class="form-control" id="longitude">
     </div>
 
     <div class="form-group">
-      <label for="status">Status:</label>
+      <label for="status">{{ local == "en" ? "Status" : "Статус" }}:</label>
       <select formControlName="status" placeholder="Status" name="status" class="form-control" id="status">
         <option selected="selected">ok</option>
         <option>fail</option>
@@ -20,6 +20,6 @@
 
     </div>
 
-    <button class="btn btn-success">Add</button>
+    <button class="btn btn-success">{{ local == "en" ? "Add" : "Додати" }}</button>
   </form>
 </div>

@@ -15,6 +15,7 @@ export class AddDroneComponent implements OnInit {
     public router: Router) { }
 
   addForm: FormGroup;
+  local: string;
 
   ngOnInit() {
     this.addForm = this.formBuilder.group({
@@ -22,6 +23,8 @@ export class AddDroneComponent implements OnInit {
       longitude: ['', Validators.required],
       status: ['', Validators.required],
     });
+
+    this.local = localStorage.getItem('local');
   }
 
   onSubmit() {

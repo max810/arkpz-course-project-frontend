@@ -14,6 +14,7 @@ export class EditDroneComponent implements OnInit {
 
   editForm: FormGroup;
   droneId: number;
+  local: string;
   ngOnInit() {
     this.editForm = this.formBuilder.group({
       id: [''],
@@ -33,6 +34,8 @@ export class EditDroneComponent implements OnInit {
           this.router.navigate(['/profile']);
         })
     });
+
+    this.local = localStorage.getItem('local');
   }
   onSubmit() {
     let drone = new Drone();
