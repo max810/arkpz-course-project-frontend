@@ -15,7 +15,7 @@ export class AdminGuard implements CanActivate {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
     let profileType = localStorage.getItem("profile_type");
-    if(profileType.toLowerCase() == "admin") {
+    if(profileType && profileType.toLowerCase() == "admin") {
       return true;
     }
 
