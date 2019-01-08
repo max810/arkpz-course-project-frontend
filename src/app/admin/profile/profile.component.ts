@@ -13,11 +13,19 @@ export class ProfileComponent implements OnInit {
       "prevReports": "Previous Reports",
       "noCrash": "NO CRASH RECORDS FOR",
       "sendCrash": "SEND CRASH REPORT",
+      "date": "Date",
+      "time": "Time",
+      "droneAssigned": "Drone assigned",
+      "droneCoords": "Drone coords",
     },
     "ua": {
       "prevReports": "Попередні аварії",
       "noCrash": "НЕМАЄ ЗАПИСІВ АВАРІЙ ДЛЯ",
       "sendCrash": "ВІДПРАВИТИ ЗАПИС ПРО АВАРІЮ",
+      "date": "Дата",
+      "time": "Час",
+      "droneAssigned": "Дрона назначено",
+      "droneCoords": "Координати дрона",
     }
   };
 
@@ -48,7 +56,7 @@ export class ProfileComponent implements OnInit {
       console.log(report.coords);
       this.backend.accrCrashSendCrashPost(report).subscribe(x => {
 
-        this.crashReportSentMessage = `Report sent!`;
+        this.crashReportSentMessage = localStorage.getItem('local') == 'en' ? `Report sent!` : `Повідомлення відправлено`;
 
       });
     },
@@ -56,7 +64,7 @@ export class ProfileComponent implements OnInit {
         report.coords.latitude = 50.0127107;
         report.coords.longitude = 36.2259922;
         this.backend.accrCrashSendCrashPost(report).subscribe(x => {
-          this.crashReportSentMessage = `Report sent! ` + x;
+          this.crashReportSentMessage = localStorage.getItem('local') == 'en' ? `Report sent!` : `Повідомлення відправлено` + x;
         });
       });
   }

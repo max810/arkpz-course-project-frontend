@@ -16,14 +16,20 @@ export class ProfileAdminComponent implements OnInit {
       "editDrone": "EDIT",
       "deleteDrone": "DELETE",
       "noDrones": "No drones yet",
-      "confirmDelete": "Are you sure you want to delete drone №"
+      "confirmDelete": "Are you sure you want to delete drone №",
+      "status": "Status",
+      "longitude": "Longitude",
+      "latitude": "Latitude",
     },
     "ua": {
       "addDrone": "ДОДАТИ ДРОНА",
       "editDrone": "РЕДАГУВАТИ",
       "deleteDrone": "ВИДАЛИТИ",
       "noDrones": "Поки що немає дронів",
-      "confirmDelete": "Ви впевнені, що бажаєте видалити дрона №"
+      "confirmDelete": "Ви впевнені, що бажаєте видалити дрона №",
+      "status": "Статус",
+      "longitude": "Довгота",
+      "latitude": "Широта",
     }
   };
 

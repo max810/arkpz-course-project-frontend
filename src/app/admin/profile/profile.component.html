@@ -6,10 +6,10 @@
       <thead class="thead-light">
         <tr>
           <th scope="col" style="width: 100px;">Id</th>
-          <th scope="col" style="width: 100px;">Date</th>
-          <th scope="col" style="width: 100px;">Time</th>
-          <th scope="col" style="width: 100px;">Drone assigned</th>
-          <th scope="col" style="width: 100px;">Drone coords</th>
+          <th scope="col" style="width: 100px;">{{ localText[local].date }}</th>
+          <th scope="col" style="width: 100px;">{{ localText[local].time }}</th>
+          <th scope="col" style="width: 100px;">{{ localText[local].droneAssigned }}</th>
+          <th scope="col" style="width: 100px;">{{ localText[local].droneCoords }}</th>
         </tr>
       </thead>
       <tr *ngFor="let crash of crashes">
